@@ -2,7 +2,7 @@ function registrar(){
 			alert("Registrarse!");
 		}
 function login(){
-	alert("Login!");
+	alert("Registrarse!");
 	
 	var nombre = $("#nombreUsuario").val();
 	var clave = $("#claveUsuario").val();

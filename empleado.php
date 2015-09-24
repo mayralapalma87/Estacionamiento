@@ -8,15 +8,17 @@ class empleado
  
    public function ValidarEmpleado($usuario,$clave)
   {
-    $objAccesoBD = accesoBD::ingresoBD(); 
-    $consulta =$objAccesoBD->RetornarConsulta("select * from usuarios where Nombre='$usuario' and clave='$clave'");
+    echo "Validar Empleado";
+    $objAccesoBD = accesoBD::dameUnObjetoAcceso(); 
+    $consulta =$objAccesoBD->RetornarConsulta("select * from usuarios where nombre='$usuario' and clave='$clave'");
     $consulta->execute();
     return $consulta->fetchAll(PDO::FETCH_CLASS, "usuarios");
   }
 
   public function InsertarEmpleado()
   {
-    $objAccesoBD = accesoBD::ingresoBD(); 
+    echo "Insertar Empleado";
+    $objAccesoBD = accesoBD::dameUnObjetoAcceso(); 
     $consulta =$objAccesoBD->RetornarConsulta("INSERT into usuarios (nombre,clave, mail)values(:paramNombre,:paramClave,:paramMail)");
     $consulta->bindValue(':paramNombre',$this->nombre, PDO::PARAM_STR);
     $consulta->bindValue(':paramClave', $this->clave, PDO::PARAM_STR);
@@ -27,7 +29,7 @@ class empleado
 
    public static function TraerTodosLosEmpleados()
   {
-    $objAccesoBD = accesoBD::ingresoBD(); 
+    $objAccesoBD = accesoBD::dameUnObjetoAcceso(); 
     $consulta =$objAccesoBD->RetornarConsulta("select * from usuarios");
     $consulta->execute();           
     return $consulta->fetchAll(PDO::FETCH_CLASS, "usuarios"); 

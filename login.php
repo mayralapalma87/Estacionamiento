@@ -42,6 +42,11 @@
                                      <input type="button" onclick="login()" class="btn btn-success" value= "Ingresar" >
                                 </div>
                             </div>
+                            <div class="checkbox">
+                                 <label>
+                                    <input type="checkbox" id="recordarme" checked> Recordame
+                                </label>
+                            </div>
                         
                         </form>
 

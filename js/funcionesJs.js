@@ -1,5 +1,6 @@
 function registrar(){
 	alert("Registrarse!");
+	
 	var nombre = $("#nombreUsuario").val();
 	var clave = $("#claveUsuario").val();
 	var mail = $("#mailUsuario").val();
@@ -30,10 +31,11 @@ function login(){
 	
 	var nombre = $("#nombreUsuario").val();
 	var clave = $("#claveUsuario").val();
+	var recordar=$("#recordarme").is(':checked');
 	var magicAjax = $.ajax({
 					url: "validar.php",
 					type:"post",	
-					data:{usuario:nombre, pass:clave}
+					data:{usuario:nombre, pass:clave, recordarme:recordar}
 				});
 
 	magicAjax.done(function(respuesta){

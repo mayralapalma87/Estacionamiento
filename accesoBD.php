@@ -1,7 +1,7 @@
 <?php
 class accesoBD
 {
-    private static $objAccesoBD;
+    private static $ObjetoAccesoDatos;
     private $objetoPDO;
  
     private function __construct()
@@ -15,21 +15,25 @@ class accesoBD
             die();
         }
     }
-    public static function ingresoBD()
-    { 
-        if (!isset(self::$objAccesoBD)) {          
-            self::$objAccesoBD = new AccesoDatos(); 
-        } 
-        return self::$objAccesoBD;        
-    }
+ 
     public function RetornarConsulta($sql)
     { 
         return $this->objetoPDO->prepare($sql); 
     }
+    
      public function RetornarUltimoIdInsertado()
     { 
         return $this->objetoPDO->lastInsertId(); 
-    } 
+    }
+ 
+    public static function dameUnObjetoAcceso()
+    { 
+        if (!isset(self::$ObjetoAccesoDatos)) {          
+            self::$ObjetoAccesoDatos = new accesoBD(); 
+        } 
+        return self::$ObjetoAccesoDatos;        
+    }
+ 
  
      // Evita que el objeto se pueda clonar
     public function __clone()

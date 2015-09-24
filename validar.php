@@ -5,14 +5,20 @@ require_once("accesoBD.php");
 
 echo "validando...";
 
-if(empleado::ValidarEmpleado($_POST['usuario'], $_POST['pass'])
+$usuario=$_POST['usuario'];
+$clave=$_POST['pass'];
+$recordar=$_POST['recordarme'];
+
+if(empleado::ValidarEmpleado($usuario, $clave)
 {
-	$_SESSION['usuarioActual']=$_POST['usuario'];
-	return "correcto";
-}
+	$_SESSION['usuarioActual']=$usuario;
+	if($recordar){
+		setcookie("registro",$usuario,  time()+36000 , '/');
+	}
+	return ("correcto");
 else
 {
-	return "No registrado";
+	return ("No registrado");
 }
 
 ?>

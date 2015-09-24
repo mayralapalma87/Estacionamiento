@@ -1,0 +1,5 @@
+#imagen-fondo
+{
+  background-image: url('/Estacionamiento/Imagenes/estacionamiento-background.jpg');
+  background-size: contain;
+}

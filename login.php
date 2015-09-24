@@ -19,7 +19,7 @@
             <div class="panel panel-info" >
                     <div class="panel-heading">
                         <div class="panel-title" style="text-align:center;">Ingreso de Empleado </div>
-                        <div style="float:right; font-size: 90%; position: relative; top:-10px"><a href="#" onClick="registrar();">Registrarse</a></div>
+                        <div style="float:right; font-size: 90%; position: relative; top:-10px"><a href="registrarse.php">Registrarse</a></div>
                     </div>     
 
                     <div style="padding-top:30px" class="panel-body" >    

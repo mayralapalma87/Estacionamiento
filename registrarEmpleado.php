@@ -3,9 +3,9 @@ session_start();
 require_once("empleado.php");
 require_once("accesoBD.php");
 
-echo "validando...";
+echo "Resgistrando...";
 
-if(empleado::ValidarEmpleado($_POST['usuario'], $_POST['pass'])
+if(empleado::InsertarEmpleado($_POST['usuario'], $_POST['pass'],$_POST['mail'])
 {
 	$_SESSION['usuarioActual']=$_POST['usuario'];
 	return "correcto";

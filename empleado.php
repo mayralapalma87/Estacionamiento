@@ -6,20 +6,12 @@ class empleado
   public $clave;
   public $mail;
  
-   public function validarEmpleado($usuario,$clave)
+   public function ValidarEmpleado($usuario,$clave)
   {
     $objAccesoBD = accesoBD::ingresoBD(); 
     $consulta =$objAccesoBD->RetornarConsulta("select * from usuarios where Nombre='$usuario' and clave='$clave'");
     $consulta->execute();
     return $consulta->fetchAll(PDO::FETCH_CLASS, "usuarios");
-  }
-
-  public static function TraerTodosLosEmpleados()
-  {
-    $objAccesoBD = accesoBD::ingresoBD(); 
-    $consulta =$objAccesoBD->RetornarConsulta("select * from usuarios");
-    $consulta->execute();           
-    return $consulta->fetchAll(PDO::FETCH_CLASS, "usuarios"); 
   }
 
   public function InsertarEmpleado()
@@ -32,7 +24,15 @@ class empleado
     $consulta->execute();       
     return $objAccesoBD->RetornarUltimoIdInsertado();
   }
-   
+
+   public static function TraerTodosLosEmpleados()
+  {
+    $objAccesoBD = accesoBD::ingresoBD(); 
+    $consulta =$objAccesoBD->RetornarConsulta("select * from usuarios");
+    $consulta->execute();           
+    return $consulta->fetchAll(PDO::FETCH_CLASS, "usuarios"); 
+  }
+
 }
 
 ?>
